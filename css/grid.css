@@ -1,0 +1,60 @@
+@media only screen and (max-width: 1518px) {	
+	#dataEdit{
+		margin-left: 65px;
+	}
+	#dataAlt{
+		margin-left: 65px;
+		width: 150px;
+	}
+	section#painelEdit{
+		height: 100%
+		width: 100%;
+	}
+}
+@media only screen and (max-width: 1200px) {
+	#painelCons{
+		width: 95%;
+		overflow: scroll;
+	}
+	#dataAlt{
+		margin-left: 65px;
+		width: 150px;
+	}
+	#dataEdit{
+		margin-left: 65px;
+	}
+	#salvarEdit{
+		margin-left: 0px;
+	}
+
+}
+@media only screen and (max-width: 992px){
+	#painelCons{
+		width: 96%;
+		overflow: scroll;
+	}
+	section#painelEdit{
+		height: 1250px;
+		margin-top: 300px;
+
+	}
+	#dataEdit{
+		margin: 10px 0px 0px -30px;
+	}
+	#dataAlt{
+		margin: 10px 0px 0px -30px;
+		margin-left: -30px;
+	}
+	#data{
+		margin-left: -30px;
+	}
+	#dataCad{
+		margin: 10px 0px 0px -30px;
+	}
+
+}
+@media only screen and (max-width: 600px){
+	ul#grid{
+		width: 600px;
+	}
+}

@@ -1,0 +1,169 @@
+<?php
+	session_start();
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>FitCard</title>
+		<script src="js/jquery-3.3.1.min.js"></script>
+		<script src="js/jquery.mask.min.js"></script>
+		<script src="bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="js/funcoes.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/estilo.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+		
+</head>
+<body>
+	<!-- ======= PAINEL PRINCIPAL ======= !-->
+		<form action="index.php" method="get">
+			<section id="painel"class="jumbotron jumbotron-fluid col-md-9 col-sm-9 col-12">
+				<div id="barraIni">
+					<h4>Consulta de Estabelecimentos</h4>
+				</div>		
+					<div id="campoPesq" class="input-group col-lg-10 col-md-10 col-sm-10 ml-2">
+	  					<input type="text" class="form-control" placeholder="Pesquisar...">	  				
+		  				<div class="input-group-append">
+		    				<button id="buscar" class="fas fa-search btn btn-primary" type="submit"></button>
+		    				<button id="cad" type="button" class="btn btn-success ml-1" data-toggle="modal" data-target="#painelModal">Cadastrar</button>
+		 				</div>
+					</div>				
+		</form>
+		<div id="eu">
+			kkkkkkkkkkkkkkkkkkkkkkkkkk<br>
+			kkkkkkkkkk<br>
+			kkkkkkkkkk<br>
+			kkkkkkkkkk<br>
+			kkkkkkkkkk<br>
+			kkkkkkkkkk<br>
+			kkkkkkkkkk<br>
+			kkkkkkkkkk<br>
+			kkkkkkkkkk<br>
+			kkkkkkkkkk<br>
+			kkkkkkkkkk<br>
+			kkkkkkkkkk<br>
+			kkkkkkkkkk<br>
+			kkkkkkkkkk<br>
+			kkkkkkkkkk<br>
+			kkkkkkkkkk<br>
+			kkkkkkkkkk<br>
+			kkkkkkkkkk<br>
+			kkkkkkkkkk<br>
+			kkkkkkkkkk<br>
+			kkkkkkkkkk<br>
+			
+		</div>
+		</section>
+
+	<!-- ====== JANELA MODAL ====== !-->
+	<div class="modal fade" id="painelModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div id="mod" class="modal-dialog modal-lg" role="document">
+	    <div class="modal-content">
+	      <div id="modCab" class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Preencha o formulário abaixo</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	    <div class="modal-body">
+
+	    <?php
+			if(isset($_SESSION['msg'])){
+			echo $_SESSION['msg'];
+			unset($_SESSION['msg']);				
+			}
+		?>	
+
+	    <form action="valida.php" method="post" novalidate>
+	    	<div class="form-row">
+      			<div class="col-lg-6">
+		        	<label for=""><h6>Razão Social:</h6></label>
+					<input type="text" class="form-control" id="razaoSoc" name="razaoSoc" required>
+			    </div>		    		
+				<div class="col-lg-6">			   
+					<label for=""><h6>Nome Fantasia:</h6></label>
+					<input type="text" class="form-control" id="nomeFant" name="nomeFant" required>
+		    	</div>
+			</div>
+			<div class="form-row">
+			    <div class="col-lg-5">
+			        <label for=""><h6>CNPJ:</h6></label>
+					<input type="text" class="form-control" id="cnpj" name="cnpj" minlength="14">
+			   </div>
+			    <div class="col-lg-3">
+			        <label for=""><h6>Categoria:</h6></label>
+					<select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+				        <option selected>Selecione...</option>
+				        <option value="1">Borracharia</option>
+				        <option value="2">Oficina</option>
+				        <option value="3">Posto</option>
+				        <option value="4">Restaurante</option>
+				        <option value="5">Supermercado</option>
+      				</select>
+			    </div>
+			    <div class="col-lg-4">
+			        <label for=""><h6>Telefone:</h6></label>
+					<input type="text" class="form-control" id="telefone" name="telefone" required>
+			   </div>    
+      		</div>
+      		<div class="form-row">
+      			<div class="col-lg-6">
+			        <label for=""><h6>Endereço:</h6></label>
+					<input type="text" class="form-control" id="end" name="end" required>
+			   	</div>
+			   	<div class="col-lg-3">
+			        <label for=""><h6>Cidade:</h6></label>
+					<select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+				        <option selected>Selecione...</option>
+				        <option value="1">Americana</option>
+				        <option value="2">Campinas</option>
+				        <option value="3">Hortolândia</option>
+				        <option value="4">Paulínia</option>
+				        <option value="5">Sumaré</option>
+      				</select>
+			    </div>
+			    <div class="col-lg-3">
+			        <label for=""><h6>Estado:</h6></label>
+					<input type="text" class="form-control" id="estado" name="estado" required>
+			   	</div>
+      		</div>
+      		<div class="form-row">
+      			<div class="col-lg-6">
+			        <label for=""><h6>E-mail:</h6></label>
+					<input type="email" class="form-control" name="email" id="email">
+			   	</div>
+			   	<div class="col-lg-3">
+			        <label for=""><h6>Agencia:</h6></label>
+					<input type="text" class="form-control" name="ag" id="ag">
+			   	</div>
+			   	<div class="col-lg-3">
+			        <label for=""><h6>Conta:</h6></label>
+					<input type="text" class="form-control" name="cc" id="cc">
+			   	</div>
+      		</div><br>
+      		<div class="form-row">
+	      		<div class="custom-control custom-radio custom-control-inline" id="ati" name="ati">
+	  				<input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+	  				<label class="custom-control-label" for="customRadioInline1" id="ativo" name="ativo"><h6>Ativo</h6></label>
+				</div>
+				<div class="custom-control custom-radio custom-control-inline" id="ina" name="ina">
+				  	<input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+				 	<label class="custom-control-label" for="customRadioInline2" id="inativo" name="inativo"><h6>Inativo</h6></label>				 	
+				</div>
+				<div class="col-lg-6"></div>
+				<div class="col-lg-3 ml-4">	
+					<input type="date" class="form-control text-right" name="data" id="data">
+			   	</div>
+			</div>
+				<br><br>
+
+      <div class="modal-footer">
+      
+         <input type="submit" class="btn btn-primary btn-lg" id="salvar" name="submit" value="Salvar">
+
+       </form>
+
+</body>
+</html>
